@@ -9,13 +9,13 @@ using University.Domain.Layer.Enities;
 
 namespace University.Infrastructure.Layer.Configuration
 {
-    internal class AppUserRoleConfig : IEntityTypeConfiguration<AppUserRole>
+    public class AppUserRoleConfig : IEntityTypeConfiguration<AppUserRole>
     {
         public void Configure(EntityTypeBuilder<AppUserRole> builder)
         {
-            builder.ToTable("UserRoles");
+            builder.ToTable(name:"UserRoles");
 
-            builder.HasKey(userRole => new { userRole.RoleId,userRole.UserId});
+            builder.HasKey(userRole => new { userRole.RoleId, userRole.UserId });
         }
     }
     

@@ -10,7 +10,7 @@ using University.Domain.Layer.Enums;
 
 namespace University.Infrastructure.Layer.Configuration
 {
-    internal struct StudentConfig : IEntityTypeConfiguration<Student>
+    public class StudentConfig : IEntityTypeConfiguration<Student>
     {
         public void Configure(EntityTypeBuilder<Student> builder)
         {
@@ -19,7 +19,8 @@ namespace University.Infrastructure.Layer.Configuration
             builder.HasMany(stud => stud.StudentCourses)
                    .WithOne(studCourse => studCourse.Student)
                    .HasForeignKey(studCourse => studCourse.StudentId)
-                   .IsRequired(true);
+                   .IsRequired(true)
+                   .OnDelete(DeleteBehavior.Restrict);
 
 
             builder.Property(stud => stud.Level)

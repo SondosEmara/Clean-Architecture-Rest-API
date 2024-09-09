@@ -1,4 +1,0 @@
-﻿namespace University.Domain.Layer
-{
-   
-}

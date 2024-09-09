@@ -9,7 +9,7 @@ using University.Domain.Layer.Enities;
 
 namespace University.Infrastructure.Layer.Configuration
 {
-    internal struct DepartmentConfig : IEntityTypeConfiguration<Department>
+    public class DepartmentConfig : IEntityTypeConfiguration<Department>
     {
         public void Configure(EntityTypeBuilder<Department> builder)
         {
@@ -20,7 +20,8 @@ namespace University.Infrastructure.Layer.Configuration
             builder.HasMany(dept => dept.DepartmentCourse)
                    .WithOne(deptCrs => deptCrs.Department)
                    .HasForeignKey(deptCrs => deptCrs.DepartmentId)
-                   .IsRequired(true);
+                   .IsRequired(true)
+                   .OnDelete(DeleteBehavior.Restrict); ;
 
 
             //Property Setting

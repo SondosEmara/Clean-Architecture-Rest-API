@@ -9,7 +9,7 @@ using University.Domain.Layer.Enities;
 
 namespace University.Infrastructure.Layer.Configuration
 {
-    internal struct StudentEnrollmentConfig : IEntityTypeConfiguration<StudentEnrollment>
+    public class StudentEnrollmentConfig : IEntityTypeConfiguration<StudentEnrollment>
     {
         public void Configure(EntityTypeBuilder<StudentEnrollment> builder)
         { 
