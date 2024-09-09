@@ -23,6 +23,10 @@ namespace University.Infrastructure.Layer.Extentions
             #region DB-Infrastructure
               AddDbInfrastrucreConfig(services, configuration);
             #endregion
+
+            #region Regitser
+            services.AddScoped<Seeder, Seeder>();
+            #endregion
             return services;
         }
 
@@ -32,11 +36,10 @@ namespace University.Infrastructure.Layer.Extentions
             {
                 using (var scope = service.CreateScope())
                 {
-                    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-                    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AppRole>>();
+                    var seeder = scope.ServiceProvider.GetRequiredService<ISeeder>();
                     // ensures that you retrieve a valid instance of the seeder service registered in the DI container.
-                    await Seeder.RoleSeed(roleManager);
-                    await Seeder.StudentSeed(userManager);
+                    await seeder.RoleSeed();
+                    await seeder.StudentSeed();
                 }
             }
             catch (Exception) { }

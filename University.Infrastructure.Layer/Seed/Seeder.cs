@@ -11,9 +11,16 @@ using University.Infrastructure.Layer.Context;
 
 namespace University.Infrastructure.Layer.Seed
 {
-    public  static  class Seeder
+    public  class Seeder: ISeeder
     {
-        public static async Task<bool> RoleSeed(RoleManager<AppRole> _roleManager)
+        private readonly RoleManager<AppRole> _roleManager;
+        private readonly UserManager<AppUser> _userManager;
+        public Seeder(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)
+        {
+            _roleManager= roleManager;
+            _userManager= userManager;
+        }
+        public async Task<bool> RoleSeed()
         {    
                 
                 var roleCount = await _roleManager.Roles.CountAsync();
@@ -36,7 +43,7 @@ namespace University.Infrastructure.Layer.Seed
                 return true;   
         }
 
-        public static async Task<bool> StudentSeed(UserManager<AppUser>_userManager)
+        public async Task<bool> StudentSeed()
         {
             var usersCount = await _userManager.Users.CountAsync();
             if (usersCount <= 0)
