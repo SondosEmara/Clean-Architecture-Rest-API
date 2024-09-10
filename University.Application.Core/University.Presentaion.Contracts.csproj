@@ -10,4 +10,15 @@
     <ProjectReference Include="..\University.Application.Services\University.Application.Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Students\Commands\Results\" />
+    <Folder Include="Features\Students\Queries\Results\" />
+    <Folder Include="Mapping\Students\NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
 </Project>

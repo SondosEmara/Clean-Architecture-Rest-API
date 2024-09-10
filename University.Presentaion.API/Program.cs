@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using University.Application.Layer.Dependency;
 using University.Domain.Layer.Enities;
 using University.Infrastructure.Layer.Context;
 using University.Infrastructure.Layer.Extentions;
 using University.Infrastructure.Layer.Seed;
+using University.Presentaion.Contracts.Dependencis;
 
 namespace University.Presentaion.API
 {
@@ -17,17 +19,17 @@ namespace University.Presentaion.API
                 builder.Services.AddControllers();
                 builder.Services.AddEndpointsApiExplorer();
                 builder.Services.AddSwaggerGen();
-                builder.Services.AddInfrastructureDependencies(builder.Configuration);
-                builder.Services.AddIdentity<AppUser, AppRole>(options => { }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
+                builder.Services.AddInfrastructureDependencies(builder.Configuration)
+                                .AddContractsDependices()
+                                .AddApplicationDependency()
+                                .AddIdentity<AppUser, AppRole>(options => { }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
             #endregion
-
 
 
             #region App-Dependency
             var app = builder.Build();
             await app.Services.AddSeedDB();
             #endregion
-
 
 
             // Configure the HTTP request pipeline.
