@@ -21,9 +21,11 @@ namespace University.Presentaion.API
                 builder.Services.AddIdentity<AppUser, AppRole>(options => { }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
             #endregion
 
+
+
             #region App-Dependency
             var app = builder.Build();
-            await app.Services.AddInfrastructureSeedDB();
+            await app.Services.AddSeedDB();
             #endregion
 
 

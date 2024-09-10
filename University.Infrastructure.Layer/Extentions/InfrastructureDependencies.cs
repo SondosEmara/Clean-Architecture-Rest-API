@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using University.Application.Layer.Common.Interfaces;
 using University.Domain.Layer.Enities;
 using University.Infrastructure.Layer.Context;
+using University.Infrastructure.Layer.Repositories;
 using University.Infrastructure.Layer.Seed;
 using static System.Formats.Asn1.AsnWriter;
 
@@ -21,29 +22,12 @@ namespace University.Infrastructure.Layer.Extentions
     {
         public static IServiceCollection AddInfrastructureDependencies(this IServiceCollection services,IConfiguration configuration)
         {
-            #region DB-Infrastructure
               AddDbInfrastrucreConfig(services, configuration);
-            #endregion
-            /*  services
-               .AddIdentityCore<AppUser>(opt =>
-               {
-                   // here you can add options for pass like (length, should have numbers), mail and others
-                   opt.Password.RequireNonAlphanumeric = false;
-               })
-               .AddRoles<AppRole>()
-               .AddRoleManager<RoleManager<AppRole>>()
-               .AddSignInManager<SignInManager<AppUser>>()
-               .AddEntityFrameworkStores<ElearningContext>();*/
-            //#region Regitser
-            //services.AddScoped<Seeder, Seeder>();
-            //services.AddScoped<IDepartmentRepository, IDepartmentRepository>();
-            //services.AddScoped<IStudentRepositry,StudentRepositry>();
-            //services.AddScoped<, UserRepository>();
-            //#endregion
-            return services;
+              AddInfrastructyreServicesRegistration(services);
+              return services;
         }
 
-        public async static Task AddInfrastructureSeedDB(this IServiceProvider service)
+        public async static Task AddSeedDB(this IServiceProvider service)
         {
             try
             {
@@ -58,7 +42,6 @@ namespace University.Infrastructure.Layer.Extentions
             catch (Exception) { }
         }
 
-
         private static void AddDbInfrastrucreConfig(IServiceCollection services,IConfiguration configuration)
         {
             try
@@ -70,6 +53,14 @@ namespace University.Infrastructure.Layer.Extentions
             }
             catch(Exception) { }
           
+        }
+
+        private static void AddInfrastructyreServicesRegistration(IServiceCollection services) 
+        {
+            services.AddScoped<Seeder, Seeder>();
+            services.AddScoped<ICourseRepository, CourseRepositry>();
+            services.AddScoped<IStudentRepositry, StudentRepositry>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepositry>();
         }
     }
 }
