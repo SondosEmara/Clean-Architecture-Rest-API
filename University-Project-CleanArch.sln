@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Presentaion.API", "University.Presentaion.API\University.Presentaion.API.csproj", "{EBAAA074-C1E5-4534-A5A2-6EDB4EC53908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Presentaion.API", "University.Presentaion.API\University.Presentaion.API.csproj", "{EBAAA074-C1E5-4534-A5A2-6EDB4EC53908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Application.Core", "University.Application.Core\University.Application.Core.csproj", "{1B681205-3830-4F3F-A4BB-5501DB85C632}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Presentaion.Contracts", "University.Application.Core\University.Presentaion.Contracts.csproj", "{1B681205-3830-4F3F-A4BB-5501DB85C632}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Application.Services", "University.Application.Services\University.Application.Services.csproj", "{F3AE86E5-D585-40DB-AB57-4082D2AF2DD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Application.Layer", "University.Application.Services\University.Application.Layer.csproj", "{F3AE86E5-D585-40DB-AB57-4082D2AF2DD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Infrastructure.Layer", "University.Infrastructure.Layer\University.Infrastructure.Layer.csproj", "{0D372D6B-ECDE-40D4-AA9F-EFAFD596EBBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Infrastructure.Layer", "University.Infrastructure.Layer\University.Infrastructure.Layer.csproj", "{0D372D6B-ECDE-40D4-AA9F-EFAFD596EBBC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Domain.Layer", "University.Domain.Layer\University.Domain.Layer.csproj", "{B562ABAC-0D9A-4BCB-8DC6-7931A9C0FD40}"
 EndProject

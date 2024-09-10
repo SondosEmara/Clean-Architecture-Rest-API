@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using University.Application.Layer.Common.Interfaces;
 using University.Domain.Layer.Enities;
 using University.Infrastructure.Layer.Context;
 using University.Infrastructure.Layer.Seed;
@@ -23,10 +24,22 @@ namespace University.Infrastructure.Layer.Extentions
             #region DB-Infrastructure
               AddDbInfrastrucreConfig(services, configuration);
             #endregion
-
-            #region Regitser
-            services.AddScoped<Seeder, Seeder>();
-            #endregion
+            /*  services
+               .AddIdentityCore<AppUser>(opt =>
+               {
+                   // here you can add options for pass like (length, should have numbers), mail and others
+                   opt.Password.RequireNonAlphanumeric = false;
+               })
+               .AddRoles<AppRole>()
+               .AddRoleManager<RoleManager<AppRole>>()
+               .AddSignInManager<SignInManager<AppUser>>()
+               .AddEntityFrameworkStores<ElearningContext>();*/
+            //#region Regitser
+            //services.AddScoped<Seeder, Seeder>();
+            //services.AddScoped<IDepartmentRepository, IDepartmentRepository>();
+            //services.AddScoped<IStudentRepositry,StudentRepositry>();
+            //services.AddScoped<, UserRepository>();
+            //#endregion
             return services;
         }
 

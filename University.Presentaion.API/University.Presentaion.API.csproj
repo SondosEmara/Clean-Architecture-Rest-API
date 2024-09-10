@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\University.Application.Core\University.Application.Core.csproj" />
+    <ProjectReference Include="..\University.Application.Core\University.Presentaion.Contracts.csproj" />
     <ProjectReference Include="..\University.Infrastructure.Layer\University.Infrastructure.Layer.csproj" />
   </ItemGroup>
 
