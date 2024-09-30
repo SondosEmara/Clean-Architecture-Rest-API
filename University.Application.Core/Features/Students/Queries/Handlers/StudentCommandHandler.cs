@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,19 +7,34 @@ using System.Text;
 using System.Threading.Tasks;
 using University.Application.Layer.Services.Interfaces;
 using University.Domain.Layer.Enities;
+using University.Presentaion.Contracts.Bases;
 using University.Presentaion.Contracts.Features.Students.Queries.Models;
+using University.Presentaion.Contracts.Features.Students.Queries.Results;
 
 namespace University.Presentaion.Contracts.Features.Students.Queries.Handlers
 {
-    public class StudentQueryHandler : IRequestHandler<GetAllStudentsQuery, List<Student>>
+    public class StudentQueryHandler : IRequestHandler<GetAllStudentsQuery, Response<List<GetStudentListResponse>>>
     {
         private readonly IStudentService _studentService;
-        public StudentQueryHandler(IStudentService studentService)=>_studentService = studentService;
-        public async Task<List<Student>> Handle(GetAllStudentsQuery request, CancellationToken cancellationToken)
+        private readonly IMapper _mapper;
+        public StudentQueryHandler(IStudentService studentService,IMapper mapper)
         {
-            //request not have input data 
-            return await  _studentService.GetAllStudents();
-            //Still here check the response output () and make response class and mapper...........!
+            _studentService = studentService;
+            _mapper =mapper;
         }
+        public async Task<Response<List<GetStudentListResponse>>> Handle(GetAllStudentsQuery request, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var studentList = await _studentService.GetAllStudents();
+                var reseult = _mapper.Map<List<GetStudentListResponse>>(studentList);
+                if (reseult != null) return ResponseHandler.Success(reseult);
+                return ResponseHandler.Failed<List<GetStudentListResponse>>();
+            }
+            catch (Exception ex) 
+            {
+               return ResponseHandler.FaildException<List<GetStudentListResponse>>(ex);
+            }
+         }
     }
 }

@@ -12,8 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Students\Commands\Results\" />
-    <Folder Include="Features\Students\Queries\Results\" />
-    <Folder Include="Mapping\Students\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
