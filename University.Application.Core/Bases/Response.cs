@@ -8,25 +8,30 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace University.Presentaion.Contracts.Bases
 {
-    public class Response<T>
+    public struct Response<T>
     {
-        public Response(T data, string message = "")
+        public bool IsSuccess { get; set; }
+        public T? Result { get; set; }
+        public string ErrorMessage { get; set; }
+
+        public Response()
         {
-            Succeeded = true;
-            Message = message;
-            Data = data;
+            IsSuccess = false;
+            ErrorMessage = string.Empty;
         }
 
-        public Response(string message, bool succeeded)
+        public Response(T result)
         {
-            Succeeded = succeeded;
-            Message = message;
+            IsSuccess = true;
+            Result = result;
+            ErrorMessage = string.Empty;
         }
 
-        public HttpStatusCode StatusCode { get; set; }
-        public bool Succeeded { get; set; }
-        public string Message { get; set; }
-        //public List<string> Errors { get; set; }
-        public T Data { get; set; }
+        public Response(Exception ex)
+        {
+            IsSuccess = false;
+            Result = default(T);
+            ErrorMessage = ex.Message;
+        }
     }
 }
