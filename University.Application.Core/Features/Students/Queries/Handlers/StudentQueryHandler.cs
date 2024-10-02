@@ -37,7 +37,6 @@ namespace University.Presentaion.Contracts.Features.Students.Queries.Handlers
                return ResponseHandler.FaildException<List<GetStudentListResponse>>(ex);
             }
          }
-
         public async Task<Response<GetSingleStudentResponse>> Handle(GetSingleStudentQuery request, CancellationToken cancellationToken)
         {
             if (request.id == null) return ResponseHandler.Failed<GetSingleStudentResponse>();

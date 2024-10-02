@@ -18,6 +18,7 @@ namespace University.Presentaion.Contracts.AppMetaData
             private const string DefaultPrefix = $"{DefatultRule}Student";      
             public const string GetStudentsList = $"{DefaultPrefix}/get-all-students";
             public const string GetStudentById = $"{DefaultPrefix}/get-student";
+            public const string CreateStudent = $"{DefaultPrefix}/create-new-student";
         }
 
     }
