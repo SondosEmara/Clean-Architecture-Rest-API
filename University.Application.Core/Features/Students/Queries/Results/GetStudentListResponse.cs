@@ -7,7 +7,7 @@ using University.Domain.Layer.Enities;
 
 namespace University.Presentaion.Contracts.Features.Students.Queries.Results
 {
-    public record GetStudentListResponse 
+    public record GetStudentListResponse
     {
         public int Id { get; init; }
         public string? UserName { get; init; }

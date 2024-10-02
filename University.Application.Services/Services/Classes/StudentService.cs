@@ -16,5 +16,8 @@ namespace University.Application.Layer.Services.Classes
         public async Task<bool> AddAsync(Student student)=> await _studentRepositry.AddAsync(student);
 
         public async Task<List<Student>> GetAllStudents() => await _studentRepositry.GetStudentsAsync();
+
+        public async Task<Student> GetStudentById(int id)=> await _studentRepositry.GetByIdAsync(id);
+        
     }
 }

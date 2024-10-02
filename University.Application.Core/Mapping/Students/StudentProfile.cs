@@ -16,6 +16,7 @@ namespace University.Presentaion.Contracts.Mapping.Students
             //Map the Student To the GETListResponse <Source,Destionation>
             CreateMap<Student, GetStudentListResponse>()
                       .ForMember(dest=>dest.StudLevel,opt=>opt.MapFrom(source=>source.Level.ToString()));
+            CreateMap<Student, GetSingleStudentResponse>();
         }
     }
 }

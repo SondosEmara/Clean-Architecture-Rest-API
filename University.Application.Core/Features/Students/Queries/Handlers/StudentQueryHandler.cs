@@ -13,7 +13,8 @@ using University.Presentaion.Contracts.Features.Students.Queries.Results;
 
 namespace University.Presentaion.Contracts.Features.Students.Queries.Handlers
 {
-    public class StudentQueryHandler : IRequestHandler<GetAllStudentsQuery, Response<List<GetStudentListResponse>>>
+    public class StudentQueryHandler : IRequestHandler<GetAllStudentsQuery, Response<List<GetStudentListResponse>>>,
+                                       IRequestHandler<GetSingleStudentQuery, Response<GetSingleStudentResponse>>
     {
         private readonly IStudentService _studentService;
         private readonly IMapper _mapper;
@@ -36,5 +37,21 @@ namespace University.Presentaion.Contracts.Features.Students.Queries.Handlers
                return ResponseHandler.FaildException<List<GetStudentListResponse>>(ex);
             }
          }
+
+        public async Task<Response<GetSingleStudentResponse>> Handle(GetSingleStudentQuery request, CancellationToken cancellationToken)
+        {
+            if (request.id == null) return ResponseHandler.Failed<GetSingleStudentResponse>();
+            try
+            {
+                var targetStudent = await _studentService.GetStudentById(request.id.Value);
+                var reseult = _mapper.Map<GetSingleStudentResponse>(targetStudent);
+                if (reseult==null) return ResponseHandler.Success(reseult);
+                return ResponseHandler.Failed<GetSingleStudentResponse>();
+            }
+            catch (Exception ex)
+            {
+                return ResponseHandler.FaildException< GetSingleStudentResponse> (ex);
+            }
+        }
     }
 }

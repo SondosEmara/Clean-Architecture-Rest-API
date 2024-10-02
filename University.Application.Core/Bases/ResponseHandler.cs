@@ -11,7 +11,7 @@ namespace University.Presentaion.Contracts.Bases
     {
 
         public static Response<T>Success<T>(T data) => new Response<T>(data);
-
+            
         public static Response<T> Failed<T>() => new Response<T>();
 
         public static Response<T> FaildException<T>(Exception ex) => new Response<T>(ex);

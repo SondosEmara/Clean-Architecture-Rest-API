@@ -10,6 +10,8 @@ namespace University.Application.Layer.Services.Interfaces
     public interface IStudentService
     {
         public Task<bool> AddAsync(Student student);
+
+        public Task<Student> GetStudentById(int id);
         public Task<List<Student>> GetAllStudents();
     }
 }
