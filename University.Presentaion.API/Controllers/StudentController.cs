@@ -3,30 +3,40 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using University.Presentaion.Contracts.Features.Students.Queries.Models;
 using University.Presentaion.Contracts.AppMetaData;
+using University.Presentaion.Contracts.Features.Students.Commands.Handlers;
+using University.Presentaion.Contracts.Features.Students.Commands.Models;
 
 namespace University.Presentaion.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class StudentController : AppControllerBase
     {
-        private readonly IMediator _mediator;
-        public StudentController(IMediator mediator)=>_mediator=mediator;
-
+        public StudentController() { }
+        ////////private readonly IMediator _mediator;
+        ////////public StudentController(IMediator mediator)=>_mediator=mediator;
         //Add Auth-Service........!
         //Make Role=Admin........!
         [HttpGet(Router.StudentRouting.GetStudentsList)]
         public async Task<IActionResult> GetStudentList()
         {
-           var response=await _mediator.Send(new GetAllStudentsQuery());
+           var response=await Mediator.Send(new GetAllStudentsQuery());
            return Ok(response);
         }
 
         [HttpGet(Router.StudentRouting.GetStudentById)]
         public async Task<IActionResult> GetStudent(int?id)
         {
-            var response = await _mediator.Send(new GetSingleStudentQuery(id));
+            var response = await Mediator.Send(new GetSingleStudentQuery(id));
             return Ok(response);
+        }
+
+
+        [HttpPost(Router.StudentRouting.CreateStudent)]
+        public async Task<IActionResult>CreateStudent([FromBody] AddStudentCommand newStudent)
+        {
+            var response = await Mediator.Send(newStudent);
+            return Ok(response);    
         }
     }
 }
