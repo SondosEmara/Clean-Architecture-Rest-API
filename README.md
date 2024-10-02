@@ -26,4 +26,10 @@ This project follows a layered architecture to structure different components of
 ### 5. University.Application.Api
 - The API layer that sends requests through the IMediator interface.
 
+## Design Pattern
+- Apply Generic Design Pattern
+- Apply Mediator Design Pattern
+
+
+
 
