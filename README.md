@@ -24,7 +24,7 @@ This project follows a layered architecture to structure different components of
 - Includes extensions for adding MediatR.
 - Call The Application Services
 - Handle Validtaions Od DTO (Command Or Query) Using FluentAPI
-- Handle MiddleWare Validation 
+- Handle MiddleWare Validation
   
 
 ### 5. University.Application.Api
@@ -34,7 +34,8 @@ This project follows a layered architecture to structure different components of
 - Apply Generic Design Pattern
 - Apply Mediator Design Pattern
 
-
+## Principles
+- persistence ignorance principle
 
 
 
