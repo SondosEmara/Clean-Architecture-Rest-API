@@ -7,7 +7,7 @@ using University.Infrastructure.Layer.Context;
 using University.Infrastructure.Layer.Extentions;
 using University.Infrastructure.Layer.Seed;
 using University.Presentaion.Contracts.Dependencis;
-
+using University.Presentaion.Contracts.ErrorHandleMiddleWare;
 namespace University.Presentaion.API
 {
     public class Program
@@ -42,7 +42,7 @@ namespace University.Presentaion.API
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.MapControllers();
 

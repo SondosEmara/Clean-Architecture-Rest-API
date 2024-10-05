@@ -2,12 +2,14 @@
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using University.Application.Layer.Services.Interfaces;
 using University.Domain.Layer.Enities;
 using University.Presentaion.Contracts.Bases;
+using University.Presentaion.Contracts.Features.Students.Commands.Behaviour;
 using University.Presentaion.Contracts.Features.Students.Commands.Models;
 
 namespace University.Presentaion.Contracts.Features.Students.Commands.Handlers
@@ -25,7 +27,15 @@ namespace University.Presentaion.Contracts.Features.Students.Commands.Handlers
 
         public async Task<Response<string>> Handle(AddStudentCommand request, CancellationToken cancellationToken)
         {
-            var newStudent=_mapper.Map<Student>(request);
+
+            //That The same Steps in the ValidationBehavoiur Class
+            //var validator = new AddStudentCommandValidator();
+            //var validationResult = await validator.ValidateAsync(request);
+            //if (validationResult.Errors.Any()) { Console.WriteLine("PIIIIIIIII"); }
+
+
+
+            var newStudent =_mapper.Map<Student>(request);
             var result=await _studentService.AddAsync(newStudent);
             if (result==true)  return ResponseHandler.Success("Added Succefully");
             return ResponseHandler.Failed("Added Succssfully");
