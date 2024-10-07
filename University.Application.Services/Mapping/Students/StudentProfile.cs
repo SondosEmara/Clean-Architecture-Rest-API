@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using University.Application.Layer.Features.Students.Commands.Models;
 using University.Domain.Layer.Enities;
 using University.Domain.Layer.Enums;
-using University.Presentaion.Contracts.Features.Students.Commands.Models;
-using University.Presentaion.Contracts.Features.Students.Queries.Results;
+using University.Application.Layer.Features.Students.Queries.Results;
 
-namespace University.Presentaion.Contracts.Mapping.Students
+namespace University.Application.Layer.Mapping.Students
 {
     public class StudentProfile:Profile
     {

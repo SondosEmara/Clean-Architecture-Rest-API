@@ -14,7 +14,8 @@ using University.Presentaion.Contracts.Features.Students.Commands.Models;
 
 namespace University.Presentaion.Contracts.Features.Students.Commands.Handlers
 {
-    public class StudentCommandHandler : IRequestHandler<AddStudentCommand, Response<string>>
+    public class StudentCommandHandler : IRequestHandler<AddStudentCommand, Response<string>>,
+                                         IRequestHandler<EditStudentCommand,Response<string>>
     {
         private readonly IStudentService _studentService;
         private readonly IMapper _mapper;
@@ -39,6 +40,19 @@ namespace University.Presentaion.Contracts.Features.Students.Commands.Handlers
             var result=await _studentService.AddAsync(newStudent);
             if (result==true)  return ResponseHandler.Success("Added Succefully");
             return ResponseHandler.Failed("Added Succssfully");
+        }
+
+        public async Task<Response<string>> Handle(EditStudentCommand request, CancellationToken cancellationToken)
+        {
+            var student=await _studentService.GetStudentById(request.Id);
+            if(student==null) return ResponseHandler.Failed("Not Exist..........!");
+            var mappedStudent=_mapper.Map<Student>(request);
+
+            var ifSuccess=  await _studentService.EditAsync(mappedStudent);
+
+
+            if (ifSuccess) return ResponseHandler.Success("Suucess Edit");
+            return ResponseHandler.Failed("Fail Edit");
         }
     }
 }

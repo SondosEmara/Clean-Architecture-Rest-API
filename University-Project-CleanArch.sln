@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Presentaion.API", "University.Presentaion.API\University.Presentaion.API.csproj", "{EBAAA074-C1E5-4534-A5A2-6EDB4EC53908}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Presentaion.Contracts", "University.Application.Core\University.Presentaion.Contracts.csproj", "{1B681205-3830-4F3F-A4BB-5501DB85C632}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Application.Layer", "University.Application.Services\University.Application.Layer.csproj", "{F3AE86E5-D585-40DB-AB57-4082D2AF2DD4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Infrastructure.Layer", "University.Infrastructure.Layer\University.Infrastructure.Layer.csproj", "{0D372D6B-ECDE-40D4-AA9F-EFAFD596EBBC}"
@@ -23,10 +21,6 @@ Global
 		{EBAAA074-C1E5-4534-A5A2-6EDB4EC53908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBAAA074-C1E5-4534-A5A2-6EDB4EC53908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBAAA074-C1E5-4534-A5A2-6EDB4EC53908}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B681205-3830-4F3F-A4BB-5501DB85C632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B681205-3830-4F3F-A4BB-5501DB85C632}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B681205-3830-4F3F-A4BB-5501DB85C632}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B681205-3830-4F3F-A4BB-5501DB85C632}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F3AE86E5-D585-40DB-AB57-4082D2AF2DD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F3AE86E5-D585-40DB-AB57-4082D2AF2DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3AE86E5-D585-40DB-AB57-4082D2AF2DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU

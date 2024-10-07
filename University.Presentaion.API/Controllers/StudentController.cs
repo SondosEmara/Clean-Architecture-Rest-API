@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using University.Presentaion.Contracts.Features.Students.Queries.Models;
-using University.Presentaion.Contracts.AppMetaData;
-using University.Presentaion.Contracts.Features.Students.Commands.Handlers;
-using University.Presentaion.Contracts.Features.Students.Commands.Models;
+using University.Presentaion.AppMetaData;
+using University.Application.Layer.Features.Students.Queries.Models;
+using University.Application.Layer.Features.Students.Commands.Models;
 
 namespace University.Presentaion.API.Controllers
 {
@@ -25,11 +25,12 @@ namespace University.Presentaion.API.Controllers
         }
 
         [HttpGet(Router.StudentRouting.GetStudentById)]
-        public async Task<IActionResult> GetStudent(int?id)
+        public async Task<IActionResult> GetStudent(int? id)
         {
             var response = await Mediator.Send(new GetSingleStudentQuery(id));
             return Ok(response);
         }
+
 
 
         [HttpPost(Router.StudentRouting.CreateStudent)]
@@ -37,6 +38,14 @@ namespace University.Presentaion.API.Controllers
         {
             var response = await Mediator.Send(newStudent);
             return Ok(response);    
+        }
+
+
+        [HttpPost(Router.StudentRouting.UpdateStudent)]
+        public async Task<IActionResult> CreateStudent([FromBody] EditStudentCommand updateStudent)
+        {
+            var response = await Mediator.Send(updateStudent);
+            return Ok(response);
         }
     }
 }

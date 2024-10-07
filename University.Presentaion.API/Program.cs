@@ -2,12 +2,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using University.Application.Layer.Dependency;
+using University.Application.Layer.MiddleWare;
 using University.Domain.Layer.Enities;
 using University.Infrastructure.Layer.Context;
 using University.Infrastructure.Layer.Extentions;
 using University.Infrastructure.Layer.Seed;
-using University.Presentaion.Contracts.Dependencis;
-using University.Presentaion.Contracts.ErrorHandleMiddleWare;
+
 namespace University.Presentaion.API
 {
     public class Program
@@ -20,7 +20,7 @@ namespace University.Presentaion.API
                 builder.Services.AddEndpointsApiExplorer();
                 builder.Services.AddSwaggerGen();
                 builder.Services.AddInfrastructureDependencies(builder.Configuration)
-                                .AddContractsDependices()
+                                
                                 .AddApplicationDependency()
                                 .AddIdentity<AppUser, AppRole>(options => { }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
             #endregion

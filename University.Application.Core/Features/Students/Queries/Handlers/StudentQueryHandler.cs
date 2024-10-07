@@ -44,7 +44,7 @@ namespace University.Presentaion.Contracts.Features.Students.Queries.Handlers
             {
                 var targetStudent = await _studentService.GetStudentById(request.id.Value);
                 var reseult = _mapper.Map<GetSingleStudentResponse>(targetStudent);
-                if (reseult==null) return ResponseHandler.Success(reseult);
+                if (reseult!=null) return ResponseHandler.Success(reseult);
                 return ResponseHandler.Failed<GetSingleStudentResponse>();
             }
             catch (Exception ex)

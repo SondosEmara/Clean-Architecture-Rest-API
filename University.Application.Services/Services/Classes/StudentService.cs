@@ -26,6 +26,9 @@ namespace University.Application.Layer.Services.Classes
             return true; 
         }
 
+        public async Task<bool> EditAsync(Student student)=> await _studentRepositry.UpdateAsync(student);
+        
+
         public async Task<List<Student>> GetAllStudents() => await _studentRepositry.GetStudentsAsync();
 
         public async Task<Student> GetStudentById(int id)=> await _studentRepositry.GetByIdAsync(id);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace University.Presentaion.Contracts.AppMetaData
+namespace University.Presentaion.AppMetaData
 {
     public static class Router
     {
