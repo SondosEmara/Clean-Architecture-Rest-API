@@ -6,6 +6,7 @@ using University.Presentaion.AppMetaData;
 using University.Application.Layer.Features.Students.Queries.Models;
 using University.Application.Layer.Features.Students.Commands.Models;
 using University.Application.Layer.Features.Students.Queries.Handlers;
+using University.Application.Layer.Features.User.Commands.Models;
 
 namespace University.Presentaion.API.Controllers
 {

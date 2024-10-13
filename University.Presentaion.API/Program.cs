@@ -20,9 +20,14 @@ namespace University.Presentaion.API
                 builder.Services.AddEndpointsApiExplorer();
                 builder.Services.AddSwaggerGen();
                 builder.Services.AddInfrastructureDependencies(builder.Configuration)
-                                
                                 .AddApplicationDependency()
-                                .AddIdentity<AppUser, AppRole>(options => { }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
+                                .AddIdentity<AppUser, AppRole>(options => 
+                                {
+                                    options.SignIn.RequireConfirmedEmail = false;
+                                    options.Password.RequireDigit = true;
+                                    options.Lockout.MaxFailedAccessAttempts = 2;
+                                    options.User.RequireUniqueEmail = true;
+                                }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
             #endregion
 
 

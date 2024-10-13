@@ -23,5 +23,11 @@ namespace University.Presentaion.AppMetaData
             public const string GetStudentPaginaedList= $"{DefaultPrefix}/get-student-paginaed-list";
         }
 
+        public static class UserRouting
+        {
+            private const string DefaultPrefix = $"{DefatultRule}User";
+            public const string RegisterUser = $"{DefaultPrefix}/register-new-user";
+        }
+
     }
 }

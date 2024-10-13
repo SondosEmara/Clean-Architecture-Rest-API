@@ -21,6 +21,8 @@
   <ItemGroup>
     <Folder Include="Features\Department\" />
     <Folder Include="Features\Students\Commands\Results\" />
+    <Folder Include="Features\User\Commands\Result\" />
+    <Folder Include="Features\User\Queries\" />
   </ItemGroup>
 
 </Project>

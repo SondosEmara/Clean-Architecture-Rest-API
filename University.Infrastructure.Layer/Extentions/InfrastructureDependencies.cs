@@ -24,8 +24,15 @@ namespace University.Infrastructure.Layer.Extentions
         {
               AddDbInfrastrucreConfig(services, configuration);
               AddInfrastructyreServicesRegistration(services);
+         //   AddIdenity( services);
               return services;
         }
+
+        //private static void AddIdenity()
+        //{
+        //     services.AddIdentity<AppUser, AppRole>(options => { }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
+
+        //}
 
         public async static Task AddSeedDB(this IServiceProvider service)
         {

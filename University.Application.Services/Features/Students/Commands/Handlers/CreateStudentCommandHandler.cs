@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using University.Application.Layer.Common.Bases;
 using University.Application.Layer.Common.Interfaces;
-using University.Application.Layer.Features.Students.Commands.Models;
+using University.Application.Layer.Features.User.Commands.Models;
 using University.Domain.Layer.Enities;
 
 namespace University.Application.Layer.Features.Students.Commands.Handlers
