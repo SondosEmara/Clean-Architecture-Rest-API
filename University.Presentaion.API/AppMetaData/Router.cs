@@ -20,6 +20,7 @@ namespace University.Presentaion.AppMetaData
             public const string GetStudentById = $"{DefaultPrefix}/get-student";
             public const string CreateStudent = $"{DefaultPrefix}/create-new-student";
             public const string UpdateStudent= $"{DefaultPrefix}/update-student";
+            public const string GetStudentPaginaedList= $"{DefaultPrefix}/get-student-paginaed-list";
         }
 
     }

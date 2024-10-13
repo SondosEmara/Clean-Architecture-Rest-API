@@ -5,6 +5,7 @@ using University.Presentaion.Contracts.Features.Students.Queries.Models;
 using University.Presentaion.AppMetaData;
 using University.Application.Layer.Features.Students.Queries.Models;
 using University.Application.Layer.Features.Students.Commands.Models;
+using University.Application.Layer.Features.Students.Queries.Handlers;
 
 namespace University.Presentaion.API.Controllers
 {
@@ -23,6 +24,15 @@ namespace University.Presentaion.API.Controllers
            var response=await Mediator.Send(new GetAllStudentsQuery());
            return Ok(response);
         }
+
+
+        [HttpGet(Router.StudentRouting.GetStudentPaginaedList)]
+        public async Task<IActionResult> GetStudentPaginaedList([FromQuery] GetStudentPagniaedListQuery? _paginadQuery)
+        {
+            var response = await Mediator.Send(_paginadQuery);
+            return Ok(response);
+        }
+
 
         [HttpGet(Router.StudentRouting.GetStudentById)]
         public async Task<IActionResult> GetStudent(int? id)
