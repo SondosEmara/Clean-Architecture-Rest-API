@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using University.Application.Layer.Common.Bases;
+using University.Application.Layer.Features.Authentication.Commands.Models;
 using University.Application.Layer.Features.Students.Commands.Models;
-using University.Application.Layer.Features.User.Commands.Models;
 using University.Presentaion.AppMetaData;
 namespace University.Presentaion.API.Controllers
 {
@@ -18,6 +18,13 @@ namespace University.Presentaion.API.Controllers
 
         }
 
-       
+
+        [HttpPost(Router.UserRouting.SignInUser)]
+        public async Task<IActionResult> SignInUser([FromQuery] SignInCommand signInCommand)
+        {
+            var result = await Mediator.Send(signInCommand);
+            return Ok(result);
+
+        }
     }
 }

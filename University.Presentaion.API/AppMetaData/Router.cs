@@ -27,6 +27,8 @@ namespace University.Presentaion.AppMetaData
         {
             private const string DefaultPrefix = $"{DefatultRule}User";
             public const string RegisterUser = $"{DefaultPrefix}/register-new-user";
+            public const string SignInUser = $"{DefaultPrefix}/signin-user";
+
         }
 
     }

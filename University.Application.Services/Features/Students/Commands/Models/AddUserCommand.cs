@@ -8,7 +8,7 @@ using University.Application.Layer.Common.Bases;
 using University.Domain.Layer.Enities;
 using University.Domain.Layer.Enums;
 
-namespace University.Application.Layer.Features.User.Commands.Models
+namespace University.Application.Layer.Features.Authentication.Commands.Models
 {
     public class AddUserCommand:IRequest<Response<String>>
     {

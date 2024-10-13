@@ -8,7 +8,7 @@ using University.Application.Layer.Features.Students.Commands.Models;
 using University.Domain.Layer.Enities;
 using University.Domain.Layer.Enums;
 using University.Application.Layer.Features.Students.Queries.Results;
-using University.Application.Layer.Features.User.Commands.Models;
+using University.Application.Layer.Features.Authentication.Commands.Models;
 
 namespace University.Application.Layer.Mapping.Students
 {
