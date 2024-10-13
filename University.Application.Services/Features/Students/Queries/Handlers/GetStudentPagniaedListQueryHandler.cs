@@ -19,18 +19,21 @@ namespace University.Application.Layer.Features.Students.Queries.Handlers
     public class GetStudentPagniaedListQueryHandler : IRequestHandler<GetStudentPagniaedListQuery, Response<PagniationResult<GetStudentListResponse>>>
     {
         private readonly IStudentRepositry _studentRepositry;
-        public GetStudentPagniaedListQueryHandler(IStudentRepositry studentRepositry)
+        private readonly IMediator _mediator;
+        public GetStudentPagniaedListQueryHandler(IStudentRepositry studentRepositry, IMediator mediator)
         {
-            _studentRepositry = studentRepositry;            
+            _studentRepositry = studentRepositry;
+            _mediator = mediator;
+
         }
         public async Task<Response<PagniationResult<GetStudentListResponse>>> Handle(GetStudentPagniaedListQuery request, CancellationToken cancellationToken)
         {
             //Create Func Input is Student and Output is the GetStudentPagniaedListQuery
             Expression<Func<Student, GetStudentListResponse>> expression = (studentInput) =>  new GetStudentListResponse { Id=studentInput.Id, UserName=studentInput.UserName,Email=studentInput.Email,PhoneNumber=studentInput.PhoneNumber,StudLevel=studentInput.Level.ToString()};
-            var dataItems = _studentRepositry.GetAllNoTracking();
-            var paginationResultl =await dataItems
-                                          .Select(expression)
-                                          .ToPaginaedListAsync(request.PageSize,request.PageNumber);
+            var filteredResult=await _mediator.Send(new GetStudentFilteredQuery {SerachTerm=request.Search,OrderBy=request.OrderBy });
+
+            if(filteredResult.Result==null) ResponseHandler.Failed("Data Empty!!!!!!!!!.");
+            var paginationResultl = await filteredResult.Result.Select(expression).ToPaginaedListAsync(request.PageSize,request.PageNumber);
             return ResponseHandler.Success(paginationResultl);
         }
     }

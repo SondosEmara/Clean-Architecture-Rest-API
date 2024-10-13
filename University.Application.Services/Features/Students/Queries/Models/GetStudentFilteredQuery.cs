@@ -7,18 +7,13 @@ using System.Threading.Tasks;
 using University.Application.Layer.Common.Bases;
 using University.Application.Layer.Features.Students.Queries.Results;
 using University.Application.Layer.Helpers;
-using University.Application.Layer.Wrappers;
+using University.Domain.Layer.Enities;
 
 namespace University.Application.Layer.Features.Students.Queries.Models
 {
-    public record GetStudentPagniaedListQuery:IRequest<Response<PagniationResult<GetStudentListResponse>>>
+    public record GetStudentFilteredQuery:IRequest<Response<IQueryable<Student>>>
     {
-        public int PageSize {  get; init; }
-        public int PageNumber {  get; init; }
-
-        public OrderStudentEnum? OrderBy { get; init; }
-
-        public string? Search { get; init; }
-
+        public string? SerachTerm { get; set; }
+        public OrderStudentEnum? OrderBy { get; set; }
     }
 }
