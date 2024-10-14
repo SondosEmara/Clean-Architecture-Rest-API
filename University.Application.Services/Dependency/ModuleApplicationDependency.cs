@@ -25,6 +25,7 @@ namespace University.Application.Layer.Dependency
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IEmaillService,EmailService>();
 
             return services;
         }

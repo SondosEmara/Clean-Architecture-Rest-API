@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using University.Application.Layer.Common.Interfaces;
+using University.Application.Layer.Helpers;
 using University.Domain.Layer.Enities;
 using University.Infrastructure.Layer.Context;
 using University.Infrastructure.Layer.Repositories;
@@ -24,8 +25,11 @@ namespace University.Infrastructure.Layer.Extentions
         {
               AddDbInfrastrucreConfig(services, configuration);
               AddInfrastructyreServicesRegistration(services);
-         //   AddIdenity( services);
-              return services;
+             
+              //configuration.GetSection(nameof(emailSettings)).;
+
+            //   AddIdenity( services);
+            return services;
         }
 
         //private static void AddIdenity()

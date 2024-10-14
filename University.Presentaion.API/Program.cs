@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using University.Application.Layer.Dependency;
+using University.Application.Layer.Helpers;
 using University.Application.Layer.MiddleWare;
 using University.Domain.Layer.Enities;
 using University.Infrastructure.Layer.Context;
@@ -28,6 +30,11 @@ namespace University.Presentaion.API
                                     options.Lockout.MaxFailedAccessAttempts = 2;
                                     options.User.RequireUniqueEmail = true;
                                 }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
+            var emailSettings = new EmailSettings();
+
+            builder.Configuration.GetSection(nameof(emailSettings)).Bind(emailSettings);
+            builder.Services.AddSingleton(emailSettings);
+
             #endregion
 
 

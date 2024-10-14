@@ -31,5 +31,11 @@ namespace University.Presentaion.AppMetaData
 
         }
 
+        public static class EmailRoutiing
+        {
+            private const string DefaultPrefix = $"{DefatultRule}Email";
+            public const string SendEmail = $"{DefaultPrefix}/send-email";
+        }
+
     }
 }

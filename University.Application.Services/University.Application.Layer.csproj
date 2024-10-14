@@ -10,6 +10,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.10.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
+    <PackageReference Include="MailKit" Version="4.8.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
@@ -21,7 +22,7 @@
   <ItemGroup>
     <Folder Include="Features\Authentication\Commands\Result\" />
     <Folder Include="Features\Authentication\Queries\" />
-    <Folder Include="Features\Department\" />
+    <Folder Include="Features\Email\Query\" />
     <Folder Include="Features\Students\Commands\Results\" />
   </ItemGroup>
 

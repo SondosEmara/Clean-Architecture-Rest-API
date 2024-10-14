@@ -28,7 +28,7 @@ namespace University.Presentaion.API.Controllers
 
 
         [HttpGet(Router.StudentRouting.GetStudentPaginaedList)]
-        public async Task<IActionResult> GetStudentPaginaedList([FromQuery] GetStudentPagniaedListQuery? _paginadQuery)
+        public async Task<IActionResult> GetStudentPaginaedList([FromQuery] GetStudentPagniaedListQuery _paginadQuery)
         {
             var response = await Mediator.Send(_paginadQuery);
             return Ok(response);
