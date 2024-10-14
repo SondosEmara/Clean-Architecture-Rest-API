@@ -24,6 +24,10 @@ namespace University.Application.Layer.Features.Authentication.Commands.Handler
             var user = await _userManager.FindByNameAsync(request.UserName);
             if (user == null) return failedResult;
             var signInResult= await _userManager.CheckPasswordAsync(user,request.PassWord);
+            if (!user.EmailConfirmed)
+            {
+                return ResponseHandler.Failed("The Email Not Confirmed");
+            }
             if (signInResult==false) return failedResult;
 
             //Genertae Token HERE 

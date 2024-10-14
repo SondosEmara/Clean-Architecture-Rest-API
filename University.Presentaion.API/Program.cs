@@ -25,10 +25,10 @@ namespace University.Presentaion.API
                                 .AddApplicationDependency()
                                 .AddIdentity<AppUser, AppRole>(options => 
                                 {
-                                    options.SignIn.RequireConfirmedEmail = false;
                                     options.Password.RequireDigit = true;
                                     options.Lockout.MaxFailedAccessAttempts = 2;
                                     options.User.RequireUniqueEmail = true;
+                                    options.SignIn.RequireConfirmedEmail = true;
                                 }).AddEntityFrameworkStores<ApplicationyDbContext>().AddDefaultTokenProviders();
             var emailSettings = new EmailSettings();
 
