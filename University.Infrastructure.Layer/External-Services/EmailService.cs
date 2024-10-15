@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using University.Application.Layer.Helpers;
-using University.Application.Layer.Services.Interfaces;
+using University.Application.Layer.Services.Email.Interfaces;
 
 namespace University.Infrastructure.Layer.External_Services
 {

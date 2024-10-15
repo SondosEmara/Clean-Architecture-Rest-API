@@ -4,12 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using University.Application.Layer.Dependency;
 using University.Application.Layer.Helpers;
-using University.Application.Layer.MiddleWare;
 using University.Domain.Layer.Enities;
 using University.Infrastructure.Layer.Context;
 using University.Infrastructure.Layer.Extentions;
 using University.Infrastructure.Layer.Seed;
-
+using University.Applicaation.Core.Dependencies;
+using University.Applicaation.Core.MiddleWare;
 namespace University.Presentaion.API
 {
     public class Program
@@ -23,6 +23,7 @@ namespace University.Presentaion.API
                 builder.Services.AddSwaggerGen();
                 builder.Services.AddInfrastructureDependencies(builder.Configuration)
                                 .AddApplicationDependency()
+                                .AddApplicationCoreDependency()
                                 .AddIdentity<AppUser, AppRole>(options => 
                                 {
                                     options.Password.RequireDigit = true;

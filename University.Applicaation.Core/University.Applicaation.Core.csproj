@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Authentication\Commands\Result\" />
+    <Folder Include="Features\Authentication\Queries\" />
+    <Folder Include="Features\Email\Query\" />
+    <Folder Include="Features\Student\Queries\Results\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\University.Application.Services\University.Application.Layer.csproj" />
+    <ProjectReference Include="..\University.Domain.Layer\University.Domain.Layer.csproj" />
+  </ItemGroup>
+
+</Project>

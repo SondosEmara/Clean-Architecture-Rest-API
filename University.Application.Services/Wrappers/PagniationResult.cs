@@ -8,6 +8,10 @@ namespace University.Application.Layer.Wrappers
 {
     public class PagniationResult<T>
     {
+        public PagniationResult()
+        {
+        }
+
         public PagniationResult(List<T>_data,int _currentPage,int _totalCount,int _pageSize,bool _succeded)
         {
             Data = _data;

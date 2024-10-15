@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using University.Presentaion.Contracts.Features.Students.Queries.Models;
-using University.Presentaion.AppMetaData;
-using University.Application.Layer.Features.Students.Queries.Models;
+using University.Applicaation.Core.Features.Student.Commands.Models;
+using University.Applicaation.Core.Features.Students.Queries.Models;
 using University.Application.Layer.Features.Students.Commands.Models;
-using University.Application.Layer.Features.Students.Queries.Handlers;
-using University.Application.Layer.Features.Authentication.Commands.Models;
+using University.ApplicationLayer.Core.Features.Students.Queries.Models;
+using University.Presentaion.AppMetaData;
+
 
 namespace University.Presentaion.API.Controllers
 {

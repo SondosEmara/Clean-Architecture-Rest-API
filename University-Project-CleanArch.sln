@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Infrastructure.L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Domain.Layer", "University.Domain.Layer\University.Domain.Layer.csproj", "{B562ABAC-0D9A-4BCB-8DC6-7931A9C0FD40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Applicaation.Core", "University.Applicaation.Core\University.Applicaation.Core.csproj", "{0197B86C-A080-4FB7-81C2-FDD052E96484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B562ABAC-0D9A-4BCB-8DC6-7931A9C0FD40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B562ABAC-0D9A-4BCB-8DC6-7931A9C0FD40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B562ABAC-0D9A-4BCB-8DC6-7931A9C0FD40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0197B86C-A080-4FB7-81C2-FDD052E96484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0197B86C-A080-4FB7-81C2-FDD052E96484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0197B86C-A080-4FB7-81C2-FDD052E96484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0197B86C-A080-4FB7-81C2-FDD052E96484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
