@@ -20,7 +20,7 @@ namespace University.Presentaion.API.Controllers
         //Add Auth-Service........!
         //Make Role=Admin........!
 
-        kmldji
+        ERRRPRKOOOOOOOO
         [HttpGet(Router.StudentRouting.GetStudentsList)]
         public async Task<IActionResult> GetStudentList()
         {
